@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-:root{
+:root {
   --paper:#F3F1EE;
   --ink:#0C0C0C;
   --navy:#2B0063;
@@ -8,97 +8,117 @@
   --yellow:#FBE56B;
 }
 
-body{
+body {
   font-family: 'Poppins', system-ui, sans-serif;
   color: var(--ink);
   background-color: var(--paper);
   background-image: url('paper-texture.png');
   background-size: 400px;
   background-repeat: repeat;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 2px solid var(--ink);
+  background: rgba(243, 241, 238, 0.92);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--ink);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 /* HERO */
-.hero{
+.hero {
   text-align: center;
   padding: 80px 20px 40px;
 }
 
 .title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(96px, 16vw, 240px);
-  line-height: 0.85;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--pink);  /* #E063FF */
-  margin-bottom: 0.3em;
-}
-
-.title .highlight {
-  display: block;
-  font-size: 1.3em;
-}
-
-.meta {
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 20px;
-  line-height: 1.1;
-  letter-spacing: 2px;
-}
-
-/* Date + time line */
-.meta .event-time {
-  display: block;
-  font-size: clamp(45px, 7vw, 110px); /* was up to 160px → reduced by ~30% */
-  font-weight: 800;
-  color: var(--navy); 
+  font-size: clamp(64px, 16vw, 240px);
   line-height: 0.9;
-  margin-bottom: 0.25em;
+  text-transform: uppercase;
+  color: var(--pink);
 }
 
-/* Hall/location line  */
-.meta br + * {
-  font-size: clamp(40px, 6vw, 68px); /* increased by ~40% */
-  font-weight: 700;
-  color: var(--navy); /* purple */
+.event-time {
+  display: block;
+  font-size: clamp(32px, 6vw, 80px);
+  color: var(--ink);
+  font-weight: 800;
+}
 
-/* EVENT INFO */
-main{
+.event-location {
+  display: block;
+  font-size: clamp(18px, 4vw, 36px);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* MAIN CONTENT */
+main {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-.event-info{
+.event-info {
   background: #fff;
   border: 2px solid var(--ink);
   box-shadow: 10px 10px 0 var(--pink);
   padding: 40px;
+  line-height: 1.6;
 }
-
-h2{
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(28px, 4vw, 42px);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-p{ margin-bottom: 14px; font-size: 18px; }
-
-em{ font-weight: 700; }
 
 /* COUNTDOWN */
-.countdown-wrap{
+.countdown-wrap {
   text-align: center;
-  margin: 60px 0 40px;
+  margin: 40px 0 20px;
 }
 
-.countdown{
+.countdown {
   display: inline-block;
   font-family: 'Share Tech Mono', monospace;
-  font-size: clamp(48px, 10vw, 120px);
+  font-size: clamp(36px, 10vw, 120px);
   color: var(--ink);
   background: var(--pink);
   border: 3px solid var(--ink);
@@ -106,17 +126,16 @@ em{ font-weight: 700; }
   box-shadow: 6px 6px 0 var(--yellow);
 }
 
-.until{
+.until {
   margin-top: 12px;
   font-weight: 800;
   letter-spacing: 2px;
   color: var(--navy);
   text-transform: uppercase;
-  font-size: 18px;
 }
 
 /* BUTTON */
-button{
+button {
   display: block;
   margin: 0 auto;
   background: var(--navy);
@@ -125,16 +144,106 @@ button{
   padding: 16px 28px;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 18px;
   cursor: pointer;
   transition: transform 0.15s ease;
 }
-button:hover{ transform: translate(-2px, -2px); }
+button:hover { transform: translate(-2px, -2px); }
+
+/* SPEAKERS */
+.speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.speaker {
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--pink);
+  padding: 20px;
+}
+
+.speaker img {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ink);
+  margin-bottom: 12px;
+}
+
+.speaker h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.speaker a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* LIVESTREAM */
+.livestream-section {
+  max-width: 1000px;
+  margin: 60px auto;
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--pink);
+  padding: 40px;
+  text-align: center;
+}
+
+.livestream-box {
+  margin-top: 20px;
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--yellow);
+  padding: 40px;
+  background: var(--paper);
+}
+
+.placeholder {
+  font-family: 'Share Tech Mono', monospace;
+  background: var(--pink);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--yellow);
+  padding: 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
 
 /* FOOTER */
-footer{
+footer {
   text-align: center;
   color: var(--navy);
   margin: 60px 0 30px;
   font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 16px;
+  }
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 16px;
+  }
+  .nav-links.active { display: flex; }
+  .event-info, .livestream-section {
+    padding: 24px;
+  }
+  .title { font-size: clamp(56px, 14vw, 160px); }
 }
