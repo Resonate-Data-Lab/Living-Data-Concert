@@ -1,38 +1,36 @@
-// Live countdown to Living Data event
-const countdown = document.getElementById("countdown");
-const untilText = document.querySelector(".until");
+// Live countdown to Nov 7, 2025 6:00 PM (local time)
+const countdownEl = document.getElementById('countdown');
+const labelEl = document.querySelector('.until');
 
-// Set event date (local time)
-const eventDate = new Date("November 7, 2025 18:00:00").getTime();
+// Use local time of the visitor for clarity
+const eventDate = new Date('November 7, 2025 18:00:00');
 
-function updateCountdown() {
-  const now = new Date().getTime();
-  const diff = eventDate - now;
+function formatNumber(n){ return n.toString().padStart(2, '0'); }
 
-  // If the event time has passed
-  if (diff <= 0) {
-    countdown.textContent = "00:00:00";
-    untilText.textContent = "THE EVENT HAS STARTED!";
-    clearInterval(timer);
+function updateCountdown(){
+  const now = new Date();
+  const diff = eventDate.getTime() - now.getTime();
+
+  if (diff <= 0){
+    countdownEl.textContent = '00:00:00';
+    labelEl.textContent = 'THE EVENT HAS STARTED!';
+    clearInterval(ticker);
     return;
   }
 
-  // Calculate days, hours, minutes, seconds
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const days    = Math.floor(diff / (1000*60*60*24));
+  const hours   = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
 
-  // Format with leading zeros
-  const formatted =
-    (days > 0 ? days.toString().padStart(2, '0') + "d " : "") +
-    hours.toString().padStart(2, '0') + ":" +
-    minutes.toString().padStart(2, '0') + ":" +
-    seconds.toString().padStart(2, '0');
+  // Show D:HH:MM:SS if there is at least 1 day
+  const text = (days > 0)
+    ? `${days}d ${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(seconds)}`
+    : `${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(seconds)}`;
 
-  countdown.textContent = formatted;
+  countdownEl.textContent = text;
 }
 
-// Run every second
-const timer = setInterval(updateCountdown, 1000);
+// run immediately + every second
+const ticker = setInterval(updateCountdown, 1000);
 updateCountdown();
