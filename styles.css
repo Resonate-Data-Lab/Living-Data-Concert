@@ -37,14 +37,29 @@ body{
   color: var(--ink);
 }
 
-.meta{
-  font-family: 'Poppins', sans-serif;
+.meta {
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 700;
-  letter-spacing: 2px;
   text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 20px;
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
+
+.meta .event-time {
+  display: block;
+  font-size: clamp(48px, 8vw, 120px); /* <<-- this makes it huge */
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 0.95;
+  margin-bottom: 0.2em;
+}
+
+.meta br + * {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 600;
   color: var(--navy);
-  margin-top: 12px;
-  font-size: clamp(18px, 2vw, 28px);
 }
 
 /* EVENT INFO */
