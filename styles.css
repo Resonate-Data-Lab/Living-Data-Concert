@@ -148,20 +148,36 @@ button {
   transition: transform 0.15s ease;
 }
 button:hover { transform: translate(-2px, -2px); }
-
 /* SPEAKERS */
+#speakers {
+  max-width: 900px; /* matches event-info width */
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+#speakers h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 6vw, 72px);
+  text-transform: uppercase;
+  color: var(--pink);
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
 .speaker-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  margin-top: 30px;
+  justify-items: center;
 }
 
 .speaker {
   background: #fff;
   border: 2px solid var(--ink);
   box-shadow: 10px 10px 0 var(--pink);
-  padding: 20px;
+  padding: 32px 24px;
+  text-align: left;
+  max-width: 380px; /* same width ratio as event-info block */
 }
 
 .speaker img {
@@ -173,7 +189,7 @@ button:hover { transform: translate(-2px, -2px); }
 
 .speaker h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
+  font-size: clamp(28px, 3vw, 36px);
   color: var(--navy);
   margin-bottom: 8px;
 }
@@ -185,9 +201,9 @@ button:hover { transform: translate(-2px, -2px); }
 }
 
 /* LIVESTREAM */
-.livestream-section {
-  max-width: 1000px;
-  margin: 60px auto;
+#livestream {
+  max-width: 900px; /* exact match with speakers and event-info */
+  margin: 60px auto 80px;
   background: #fff;
   border: 2px solid var(--ink);
   box-shadow: 10px 10px 0 var(--pink);
@@ -195,12 +211,20 @@ button:hover { transform: translate(-2px, -2px); }
   text-align: center;
 }
 
+#livestream h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 5vw, 64px);
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
 .livestream-box {
-  margin-top: 20px;
-  border: 2px solid var(--ink);
-  box-shadow: 8px 8px 0 var(--yellow);
-  padding: 40px;
   background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--yellow);
+  padding: 30px;
 }
 
 .placeholder {
@@ -208,10 +232,12 @@ button:hover { transform: translate(-2px, -2px); }
   background: var(--pink);
   color: var(--ink);
   border: 2px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--yellow);
-  padding: 20px;
-  font-size: 1.2rem;
+  padding: 18px 0;
+  margin-top: 16px;
+  font-weight: 700;
   text-transform: uppercase;
+  box-shadow: 6px 6px 0 var(--yellow);
+  font-size: clamp(16px, 3vw, 22px);
 }
 
 /* FOOTER */
