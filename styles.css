@@ -51,7 +51,7 @@ body{
 
 .meta .event-time {
   display: block;
-  font-size: clamp(48px, 8vw, 120px); /* <<-- this makes it huge */
+  font-size: clamp(48px, 8vw, 120px); 
   font-weight: 800;
   color: var(--ink);
   line-height: 0.95;
