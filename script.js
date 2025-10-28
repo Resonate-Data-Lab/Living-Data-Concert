@@ -4,8 +4,12 @@ const labelEl = document.querySelector('.until');
 
 // Force creation of a local-time Date object
 // Months are zero-indexed: 10 = November
-const eventDate = new Date(2025, 10, 7, 18, 0, 0);
-
+// force local time in the user's current timezone
+const eventDate = new Date();
+eventDate.setFullYear(2025);
+eventDate.setMonth(10); // November (zero-indexed)
+eventDate.setDate(7);
+eventDate.setHours(18, 0, 0, 0); // 6:00:00 PM local
 function formatNumber(n) {
   return n.toString().padStart(2, '0');
 }
