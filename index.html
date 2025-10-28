@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Living Data: Hear Your Life Differently</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Living Data: Hear Your Life Differently</title>
+
+  <!-- Fonts: MIT-esque geometric + mono for timer -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Living Data 2025</h1>
-        <div id="countdown" class="countdown">00:00:00</div>
-        <p class="until">UNTIL EVENT STARTS</p>
-    </header>
+  <header class="hero">
+    <h1 class="title">LIVING DATA 2025</h1>
+    <p class="meta">NOVEMBER 7 • CHISM RECITAL HALL • 6–8 PM</p>
+  </header>
 
-    <main>
-        <section>
-            <h2>Join us for Living Data: A Sonification Concert</h2>
-            <p>This free, live, participatory event is equal parts science, story, and sound.</p>
-            <p>Real data becomes live music, poems turn into textures, and you’ll listen to the world in a totally new way.</p>
-            <p>With performances by <em>Walker Smith</em>, <em>Auralee Walmer</em>, <em>Tristan Peng</em>, and <em>Jordan Wirfs-Brock</em>, as well as opportunities for audience participation, this is not your usual concert.</p>
+  <!-- Countdown moved down the page -->
+  <section class="countdown-wrap" aria-labelledby="countdown-label">
+    <div id="countdown" class="countdown" aria-live="polite">00:00:00</div>
+    <p id="countdown-label" class="until">UNTIL EVENT STARTS</p>
+  </section>
 
-            <h2>Details</h2>
-            <ul>
-                <li>Friday, November 7</li>
-                <li>6–8 PM</li>
-                <li>Chism Recital Hall (Hall of Music, Whitman College)</li>
-                <li>FREE and open to all</li>
-                <li>With reception featuring light snacks to follow</li>
-            </ul>
+  <!-- YOUR DETAILS: kept verbatim from your file -->
+  <main>
+    <section>
+      <h2>Join us for Living Data: A Sonification Concert</h2>
+      <p>This free, live, participatory event is equal parts science, story, and sound.</p>
+      <p>Real data becomes live music, poems turn into textures, and you’ll listen to the world in a totally new way.</p>
+      <p>With performances by <em>Walker Smith</em>, <em>Auralee Walmer</em>, <em>Tristan Peng</em>, and <em>Jordan Wirfs-Brock</em>, as well as opportunities for audience participation, this is not your usual concert.</p> 
 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRtS8aj17drmDlh9pHqfK1aMJy4TvtVLbWzMTrcTaEn2C4pA/viewform?usp=header">
-                <button>RSVP Here</button>
-            </a>
-        </section>
-    </main>
+      <h2>Details</h2>
+      <ul>
+        <li>Friday, November 7</li>
+        <li>6–8 PM</li>
+        <li>Chism Recital Hall (Hall of Music, Whitman College)</li>
+        <li>FREE and open to all</li>
+        <li>With reception featuring light snacks to follow</li>
+      </ul>
 
-    <footer>
-        <p>&copy; 2025 Jordan Wirfs-Brock. All rights reserved.</p>
-    </footer>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRtS8aj17drmDlh9pHqfK1aMJy4TvtVLbWzMTrcTaEn2C4pA/viewform?usp=header">
+        <button>RSVP Here</button>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Jordan Wirfs-Brock. All rights reserved.</p>
+  </footer>
 </body>
 </html>
-
-<!DOCTYPE
