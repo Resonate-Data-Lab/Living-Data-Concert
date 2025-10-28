@@ -43,26 +43,26 @@ body{
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--ink);
   margin-top: 20px;
   line-height: 1.1;
   letter-spacing: 2px;
 }
 
+/* Date + time line */
 .meta .event-time {
   display: block;
-  font-size: clamp(48px, 8vw, 120px); 
+  font-size: clamp(45px, 7vw, 110px); /* was up to 160px → reduced by ~30% */
   font-weight: 800;
-  color: var(--ink);
-  line-height: 0.95;
-  margin-bottom: 0.2em;
+  color: var(--navy); 
+  line-height: 0.9;
+  margin-bottom: 0.25em;
 }
 
+/* Hall/location line  */
 .meta br + * {
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 600;
-  color: var(--navy);
-}
+  font-size: clamp(40px, 6vw, 68px); /* increased by ~40% */
+  font-weight: 700;
+  color: var(--navy); /* purple */
 
 /* EVENT INFO */
 main{
