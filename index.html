@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Living Data Concert 2025</title>
+  <title>Living Data Concert</title>
 
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -18,25 +18,24 @@
   <nav class="navbar">
     <div class="logo">LIVING DATA</div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="#event-info">About</a></li>
       <li><a href="#speakers">Speakers</a></li>
       <li><a href="#livestream">Livestream</a></li>
-      <li><a href="#faq">FAQ</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <header class="hero" id="about">
+  <header class="hero">
     <h1 class="title"><span class="highlight">LIVING DATA</span> CONCERT</h1>
     <p class="meta">
-      <span class="event-time">NOVEMBER 7, 2025 • 6–8 PM</span><br>
+      <span class="event-time">NOVEMBER 7 • 6–8 PM</span><br>
       <span class="event-location">CHISM RECITAL HALL (HALL OF MUSIC), WHITMAN COLLEGE</span>
     </p>
   </header>
 
   <!-- EVENT INFO -->
   <main>
-    <section class="event-info">
+    <section id="event-info" class="event-info">
       <h2>Join us for the Living Data Concert</h2>
       <p>
         This free, live, participatory event is equal parts science, story, and sound.  
@@ -48,7 +47,7 @@
       </p>
 
       <h2>Details</h2>
-      <p><strong>Friday, November 7, 2025</strong> • 6–8 PM</p>
+      <p><strong>Friday, November 7</strong> • 6–8 PM</p>
       <p>Chism Recital Hall (Hall of Music, Whitman College)</p>
       <p>Free and open to all, with reception featuring light snacks to follow.</p>
 
@@ -69,35 +68,67 @@
     <div class="speaker-grid">
 
       <div class="speaker">
-        <img src="walker.png" alt="Walker Smith" />
+        <img src="walker.png" alt="Walker Smith">
         <h3>Walker Smith</h3>
         <p>
           Walker Smith is a “musical chemist” whose research and artistic practice focuses on converting the periodic table into a musical instrument and composing element dance parties. He has appeared as his spectral alter-ego Roy G. Biv on stages across the US and Europe performing his educational multimedia show “The Sound of Molecules.” As a Knight-Hennessy Scholar at Stanford University, he is currently pursuing his musical chemistry research in a PhD in Computer-Based Music Theory and Acoustics.
         </p>
+        <div class="player">
+          <div class="player-icons">
+            <span class="playing">PLAY</span>
+            <span>PAUSE</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="time">2:34</div>
+        </div>
       </div>
 
       <div class="speaker">
-        <img src="tristan.png" alt="Tristan Peng" />
-        <h3>Tristan Peng</h3>
-        <p>
-          Tristan Peng is a Music Technology PhD student at the Georgia Institute of Technology exploring interaction design, spatial audio, and sonification. A creative technologist and musician, he aims to democratize music through technology, making artful interactive and immersive musical experiences more accessible.
-        </p>
-      </div>
-
-      <div class="speaker">
-        <img src="aura.png" alt="Aura Walmer" />
+        <img src="aura.png" alt="Aura Walmer">
         <h3>Aura Walmer</h3>
         <p>
-          Aura Walmer is an information designer, researcher, artist, and audio enthusiast. She uses interdisciplinary methods to combine data, art, and sound for the purpose of communication and learning. She currently works for the University of Michigan's Institute for Social Research and recently completed a journalism fellowship to build an open-source data sonification toolkit called <em>Sonification Kit</em>. Her data-driven projects and sound design work can be found on her website and other open platforms.
+          Aura Walmer is an information designer, researcher, artist, and audio enthusiast. She uses interdisciplinary methods to combine data, art, and sound for communication and learning. She currently works for the University of Michigan's Institute for Social Research and recently completed a journalism fellowship to build an open-source data sonification toolkit called <em>Sonification Kit</em>. Her data-driven projects and sound design work can be found on her website and other open platforms.
         </p>
+        <div class="player">
+          <div class="player-icons">
+            <span class="playing">PLAY</span>
+            <span>PAUSE</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="time">3:12</div>
+        </div>
       </div>
 
       <div class="speaker">
-        <img src="jordan.png" alt="Jordan Wirfs-Brock" />
+        <img src="tristan.png" alt="Tristan Peng">
+        <h3>Tristan Peng</h3>
+        <p>
+          Tristan Peng is a Music Technology PhD student at the Georgia Institute of Technology exploring interaction design, spatial audio, and sonification. A creative technologist and musician, he aims to democratize music through technology, making interactive and immersive musical experiences more accessible.
+        </p>
+        <div class="player">
+          <div class="player-icons">
+            <span class="playing">PLAY</span>
+            <span>PAUSE</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="time">2:59</div>
+        </div>
+      </div>
+
+      <div class="speaker">
+        <img src="jordan.png" alt="Jordan Wirfs-Brock">
         <h3>Jordan Wirfs-Brock</h3>
         <p>
           Jordan Wirfs-Brock is a science communicator and data storyteller transforming data into performance, sound, and narrative experience.
         </p>
+        <div class="player">
+          <div class="player-icons">
+            <span class="playing">PLAY</span>
+            <span>PAUSE</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="time">2:47</div>
+        </div>
       </div>
 
     </div>
@@ -114,31 +145,26 @@
 
   <!-- FOOTER -->
   <footer>
-  
-    <p>Made with 🩷 and data-driven sound • &copy; 2025 Jordan Wirfs-Brock. All rights reserved.</p>
-</footer>
+    <p>&copy; 2025 Living Data Concert. All rights reserved.</p>
+  </footer>
 
-  <!-- JS -->
+  <!-- SCRIPT -->
   <script>
-    // Countdown timer
     const countdownEl = document.getElementById('countdown');
     const eventDate = new Date('November 7, 2025 18:00:00').getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = eventDate - now;
-
       if (distance < 0) {
-        countdownEl.innerHTML = "00:00:00";
+        countdownEl.textContent = "00:00:00";
         return;
       }
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownEl.innerHTML = `${days}d ${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+      countdownEl.textContent = `${days}d ${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
     }
 
     setInterval(updateCountdown, 1000);
