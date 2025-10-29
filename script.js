@@ -58,28 +58,40 @@ window.addEventListener('scroll', () => {
 });
 
 
-// SPEAKER CAROUSEL — Spotify-style
-const cards = document.querySelectorAll('.speaker-card');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-let current = 0;
+ // SPEAKER CAROUSEL — Spotify-style
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".speaker-card");
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
 
-function showCard(index) {
-  cards.forEach(card => card.classList.remove('active'));
-  cards[index].classList.add('active');
-}
+  if (!cards.length || !nextBtn || !prevBtn) return;
 
-if (nextBtn && prevBtn && cards.length > 0) {
-  nextBtn.addEventListener('click', () => {
+  let current = 0;
+
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle("active", i === index);
+    });
+  }
+
+  nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     current = (current + 1) % cards.length;
     showCard(current);
   });
 
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     current = (current - 1 + cards.length) % cards.length;
     showCard(current);
   });
-}
+
+  // Optional auto-slide (every 12s)
+  setInterval(() => {
+    current = (current + 1) % cards.length;
+    showCard(current);
+  }, 12000);
+});
 
 // OPTIONAL: Auto-slide (like Spotify playlist)
 setInterval(() => {
