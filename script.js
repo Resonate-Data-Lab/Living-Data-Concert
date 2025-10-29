@@ -34,12 +34,14 @@ updateCountdown();
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
-toggle.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
+if (toggle) {
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+}
 
 
-//  STICKY NAVBAR (Hide on Scroll Down)
+// STICKY NAVBAR (Hide on Scroll Down)
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector('.navbar');
 
@@ -54,3 +56,35 @@ window.addEventListener('scroll', () => {
 
   lastScrollY = currentScrollY;
 });
+
+
+// SPEAKER CAROUSEL — Spotify-style
+const cards = document.querySelectorAll('.speaker-card');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+let current = 0;
+
+function showCard(index) {
+  cards.forEach(card => card.classList.remove('active'));
+  cards[index].classList.add('active');
+}
+
+if (nextBtn && prevBtn && cards.length > 0) {
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % cards.length;
+    showCard(current);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + cards.length) % cards.length;
+    showCard(current);
+  });
+}
+
+// OPTIONAL: Auto-slide (like Spotify playlist)
+setInterval(() => {
+  if (cards.length > 0) {
+    current = (current + 1) % cards.length;
+    showCard(current);
+  }
+}, 12000); // change every 12 seconds
