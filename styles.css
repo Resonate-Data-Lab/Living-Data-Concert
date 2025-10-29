@@ -62,12 +62,11 @@ body {
   color: var(--pink);
 }
 
-
 /* HERO */
 .hero {
   text-align: center;
   padding: 80px 20px 40px;
-  max-width: 900px; /* matches the width of your .event-info box */
+  max-width: 900px; /* matches the event-info box */
   margin: 0 auto;
 }
 
@@ -80,38 +79,47 @@ body {
   margin-bottom: 20px;
 }
 
-/* keep meta centered within the same block */
+/* container for the two purple lines */
 .meta {
   margin: 0 auto;
   max-width: 800px;
 }
 
-/* both date/time and location pink, same width as title block */
-.event-time,
-.event-location {
+/* first line: date/time */
+.event-time {
   display: block;
-  font-size: clamp(24px, 3.5vw, 42px);
-  color: var(--pink);
+  font-size: clamp(24px, 3.5vw, 40px);
+  color: var(--navy); /* purple */
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin: 6px auto;
+  margin-bottom: 10px;
 }
 
-/* responsive */
+/* second line: location, smaller + one line */
+.event-location {
+  display: block;
+  font-size: clamp(18px, 2.5vw, 26px);
+  color: var(--navy); /* purple */
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap; /* keeps it one line */
+}
+
+/* responsive tweaks */
 @media (max-width: 768px) {
   .hero {
     padding: 60px 16px 30px;
     max-width: 90%;
   }
-  .event-time,
+  .event-time {
+    font-size: clamp(18px, 4.5vw, 28px);
+  }
   .event-location {
-    font-size: clamp(18px, 5vw, 30px);
+    font-size: clamp(14px, 3.8vw, 20px);
+    white-space: normal; /* allows wrap only on phones */
   }
 }
-
-
-
 /* MAIN CONTENT */
 main {
   max-width: 900px;
