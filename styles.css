@@ -148,57 +148,86 @@ button {
   transition: transform 0.15s ease;
 }
 button:hover { transform: translate(-2px, -2px); }
+
 /* SPEAKERS */
 #speakers {
-  max-width: 900px; /* matches event-info width */
+  max-width: 900px;
   margin: 0 auto 80px;
   text-align: center;
 }
 
 #speakers h2 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(42px, 6vw, 72px);
+  font-size: clamp(42px, 5vw, 72px);
   text-transform: uppercase;
   color: var(--pink);
-  letter-spacing: 1px;
-  margin-bottom: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
 }
 
-.speaker-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  justify-items: center;
-}
-
+/* each speaker as a full-width feature card */
 .speaker {
+  display: flex;
+  align-items: flex-start;
   background: #fff;
   border: 2px solid var(--ink);
   box-shadow: 10px 10px 0 var(--pink);
-  padding: 32px 24px;
+  padding: 40px;
+  margin-bottom: 40px;
   text-align: left;
-  max-width: 380px; /* same width ratio as event-info block */
+  gap: 30px;
 }
 
 .speaker img {
-  width: 100%;
+  flex-shrink: 0;
+  width: 220px;
   height: auto;
   border: 2px solid var(--ink);
-  margin-bottom: 12px;
+  box-shadow: 6px 6px 0 var(--yellow);
+}
+
+.speaker-content {
+  flex: 1;
 }
 
 .speaker h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(28px, 3vw, 36px);
+  font-size: clamp(32px, 4vw, 56px);
   color: var(--navy);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.speaker p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
 .speaker a {
   color: var(--navy);
-  font-weight: 600;
   text-decoration: underline;
+  font-weight: 600;
 }
+
+/* responsive layout for smaller devices */
+@media (max-width: 768px) {
+  .speaker {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .speaker img {
+    width: 160px;
+    margin-bottom: 20px;
+  }
+
+  .speaker-content {
+    text-align: center;
+  }
+}
+
 
 /* LIVESTREAM */
 #livestream {
