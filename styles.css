@@ -177,135 +177,122 @@ button {
 button:hover {
   transform: translate(-2px, -2px);
 }
-
-/* SPEAKERS SECTION */
-#speakers {
-  max-width: 1100px;
-  margin: 0 auto 100px;
+/* SPEAKERS — Spotify-style Carousel */
+.speaker-carousel {
   text-align: center;
+  max-width: 900px;
+  margin: 0 auto 100px;
+  padding: 60px 20px;
 }
 
-#speakers h2 {
+.speaker-carousel h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(48px, 8vw, 96px);
   color: var(--pink);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
-/* Speaker layout */
-.speaker-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speaker-card {
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
   gap: 40px;
-  justify-items: center;
-}
-
-/* Speaker cards - music player aesthetic */
-.speaker {
   background: var(--paper);
   border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--pink);
   border-radius: 16px;
+  padding: 40px;
   width: 100%;
-  max-width: 500px;
-  padding: 24px;
-  position: relative;
-  text-align: left;
-  box-shadow: 8px 8px 0 var(--pink);
-  transition: transform 0.25s ease, box-shadow 0.3s ease;
-  height: 100%;
+  transition: transform 0.5s ease, opacity 0.4s ease;
+}
+
+.speaker-card.active {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  opacity: 1;
 }
 
-.speaker:hover {
-  transform: translateY(-4px);
-  box-shadow: 10px 10px 0 var(--yellow);
-}
-.speaker img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+.speaker-card img {
+  width: 280px;
+  height: 280px;
   object-fit: cover;
-  border-radius: 16px;
   border: 2px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--yellow);
-  margin-bottom: 14px;
-}
-/* album art */
-.speaker img {
-  width: 100%;
-  height: auto;
+  box-shadow: 6px 6px 0 var(--yellow);
   border-radius: 12px;
-  border: 2px solid var(--ink);
-  margin-bottom: 16px;
 }
 
-/* speaker info */
-.speaker h3 {
+.speaker-info {
+  flex: 1;
+  text-align: left;
+}
+
+.speaker-info h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
+  font-size: 36px;
   color: var(--navy);
-  margin-bottom: 6px;
-  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-.speaker p {
-  font-size: 15px;
+.speaker-info p {
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink);
 }
 
-/* player bar */
-.player {
-  margin-top: 16px;
-  border-top: 2px solid var(--ink);
-  padding-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: 'Share Tech Mono', monospace;
-}
-
-.player-icons {
-  display: flex;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--navy);
-  font-weight: 700;
-}
-
-.player-icons span:hover {
-  color: var(--pink);
-}
-
-.progress-bar {
-  flex: 1;
-  height: 5px;
-  background: #ddd;
-  margin: 0 10px;
-  border-radius: 2px;
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 5px;
-  width: 45%;
+/* navigation buttons */
+.nav-btn {
   background: var(--navy);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  transition: background 0.3s ease;
 }
 
-.time {
-  font-size: 13px;
+.nav-btn:hover {
+  background: var(--pink);
   color: var(--ink);
-  width: 40px;
-  text-align: right;
 }
 
+.prev { left: -60px; }
+.next { right: -60px; }
+
+/* responsive layout */
+@media (max-width: 768px) {
+  .speaker-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .speaker-card img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .nav-btn {
+    position: static;
+    margin: 10px;
+  }
+
+  .carousel-container {
+    flex-direction: column;
+  }
+}
 /* LIVESTREAM */
 #livestream {
   max-width: 900px;
