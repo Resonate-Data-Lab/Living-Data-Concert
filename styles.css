@@ -62,32 +62,39 @@ body {
   color: var(--pink);
 }
 
-/* HERO */
-.hero {
+
+/* === HERO width sync + color === */
+.hero{
+  /* make the whole hero size to the widest child (the title) */
+  display: grid;
+  grid-template-columns: max-content;  /* column width = widest child */
+  justify-content: center;             /* center the column in the page */
   text-align: center;
-  padding: 80px 20px 40px;
 }
 
-.title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(64px, 16vw, 240px);
-  line-height: 0.9;
+/* keep title and meta in that same max-content column */
+.hero .title,
+.hero .meta{
+  justify-self: center;
+}
+
+/* prevent wrapping so widths stay identical to the title width */
+.hero .meta span{
+  display: block;        /* keep them on separate lines */
+  white-space: nowrap;   /* no wrapping, so width = content width */
+}
+
+/* make both lines purple (same as your site purple) */
+.event-time,
+.event-location{
+  color: var(--navy);    /* your purple variable */
+}
+
+/* tracking to match the title vibe a bit more */
+.event-time,
+.event-location{
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--pink);
-}
-
-.event-time {
-  display: block;
-  font-size: clamp(32px, 6vw, 80px);
-  color: var(--ink);
-  font-weight: 800;
-}
-
-.event-location {
-  display: block;
-  font-size: clamp(18px, 4vw, 36px);
-  color: var(--navy);
-  font-weight: 700;
 }
 
 /* MAIN CONTENT */
