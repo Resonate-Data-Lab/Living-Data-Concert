@@ -224,7 +224,15 @@ button:hover {
   transform: translateY(-4px);
   box-shadow: 10px 10px 0 var(--yellow);
 }
-
+.speaker img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--yellow);
+  margin-bottom: 14px;
+}
 /* album art */
 .speaker img {
   width: 100%;
