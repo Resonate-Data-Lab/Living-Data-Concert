@@ -63,39 +63,54 @@ body {
 }
 
 
-/* === HERO width sync + color === */
-.hero{
-  /* make the whole hero size to the widest child (the title) */
-  display: grid;
-  grid-template-columns: max-content;  /* column width = widest child */
-  justify-content: center;             /* center the column in the page */
+/* HERO */
+.hero {
   text-align: center;
+  padding: 80px 20px 40px;
+  max-width: 900px; /* matches the width of your .event-info box */
+  margin: 0 auto;
 }
 
-/* keep title and meta in that same max-content column */
-.hero .title,
-.hero .meta{
-  justify-self: center;
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(64px, 16vw, 240px);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
 }
 
-/* prevent wrapping so widths stay identical to the title width */
-.hero .meta span{
-  display: block;        /* keep them on separate lines */
-  white-space: nowrap;   /* no wrapping, so width = content width */
+/* keep meta centered within the same block */
+.meta {
+  margin: 0 auto;
+  max-width: 800px;
 }
 
-/* make both lines purple (same as your site purple) */
+/* both date/time and location pink, same width as title block */
 .event-time,
-.event-location{
-  color: var(--navy);    /* your purple variable */
-}
-
-/* tracking to match the title vibe a bit more */
-.event-time,
-.event-location{
+.event-location {
+  display: block;
+  font-size: clamp(24px, 3.5vw, 42px);
+  color: var(--pink);
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin: 6px auto;
 }
+
+/* responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 16px 30px;
+    max-width: 90%;
+  }
+  .event-time,
+  .event-location {
+    font-size: clamp(18px, 5vw, 30px);
+  }
+}
+
+
 
 /* MAIN CONTENT */
 main {
