@@ -149,84 +149,108 @@ button {
 }
 button:hover { transform: translate(-2px, -2px); }
 
-/* SPEAKERS */
+/* SPEAKERS SECTION */
 #speakers {
-  max-width: 900px;
-  margin: 0 auto 80px;
+  max-width: 1100px;
+  margin: 0 auto 100px;
   text-align: center;
 }
 
 #speakers h2 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(42px, 5vw, 72px);
-  text-transform: uppercase;
+  font-size: clamp(48px, 8vw, 96px);
   color: var(--pink);
+  text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
-/* each speaker as a full-width feature card */
-.speaker {
+/* speaker container */
+.speaker-grid {
   display: flex;
-  align-items: flex-start;
-  background: #fff;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* each speaker looks like a paper postcard or music card */
+.speaker {
+  background: var(--paper);
   border: 2px solid var(--ink);
-  box-shadow: 10px 10px 0 var(--pink);
-  padding: 40px;
-  margin-bottom: 40px;
+  border-radius: 20px;
+  width: 320px;
+  padding: 30px 20px;
+  position: relative;
   text-align: left;
-  gap: 30px;
+  box-shadow: 10px 10px 0 var(--pink), 0 0 0 2px var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
+/* Slight rotation to look “paper scattered” */
+.speaker:nth-child(odd) { transform: rotate(-1.2deg); }
+.speaker:nth-child(even) { transform: rotate(1.4deg); }
+
+.speaker:hover {
+  transform: scale(1.02);
+  box-shadow: 14px 14px 0 var(--yellow), 0 0 0 2px var(--ink);
+}
+
+/* image styling like album art */
 .speaker img {
-  flex-shrink: 0;
-  width: 220px;
+  width: 100%;
   height: auto;
+  border-radius: 16px;
   border: 2px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--yellow);
+  box-shadow: 3px 3px 0 var(--yellow);
+  margin-bottom: 14px;
 }
 
-.speaker-content {
-  flex: 1;
-}
-
+/* speaker info */
 .speaker h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: 28px;
   color: var(--navy);
-  margin-bottom: 12px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
 }
 
 .speaker p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
 }
 
-.speaker a {
+/* “controls” detail strip for music card feel */
+.speaker::after {
+  content: "▶︎  ♫   ✦   ♥";
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
   color: var(--navy);
-  text-decoration: underline;
-  font-weight: 600;
+  opacity: 0.6;
 }
 
-/* responsive layout for smaller devices */
+/* subtle grain paper effect */
+.speaker {
+  background-image: url('paper-texture.png');
+  background-size: 300px;
+}
+
+/* responsive */
 @media (max-width: 768px) {
-  .speaker {
+  .speaker-grid {
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 24px;
   }
-
-  .speaker img {
-    width: 160px;
-    margin-bottom: 20px;
-  }
-
-  .speaker-content {
-    text-align: center;
+  .speaker {
+    width: 85%;
+    transform: none !important;
   }
 }
+
+
 
 
 /* LIVESTREAM */
