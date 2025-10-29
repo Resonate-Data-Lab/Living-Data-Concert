@@ -1,11 +1,15 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
-  --paper:#F3F1EE;
-  --ink:#0C0C0C;
-  --navy:#2B0063;
-  --pink:#E063FF;
-  --yellow:#FBE56B;
+  --paper: #F3F1EE;
+  --ink: #0C0C0C;
+  --navy: #2B0063;
+  --pink: #E063FF;
+  --yellow: #FBE56B;
 }
 
 body {
@@ -33,11 +37,6 @@ body {
   transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.navbar.hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
 .logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 28px;
@@ -56,14 +55,11 @@ body {
   color: var(--ink);
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: color 0.2s ease;
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
+.nav-links a:hover {
+  color: var(--pink);
 }
 
 /* HERO */
@@ -147,153 +143,134 @@ button {
   cursor: pointer;
   transition: transform 0.15s ease;
 }
-button:hover { transform: translate(-2px, -2px); }
-/* SPEAKER GRID */
-.speaker-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-  gap: 40px;
-  justify-content: center;
-  align-items: start;
+
+button:hover {
+  transform: translate(-2px, -2px);
 }
 
-/* CARD BASE */
+/* SPEAKERS SECTION */
+#speakers {
+  max-width: 1100px;
+  margin: 0 auto 100px;
+  text-align: center;
+}
+
+#speakers h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+
+/* Speaker layout */
+.speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+/* Speaker cards - music player aesthetic */
 .speaker {
   background: var(--paper);
   border: 2px solid var(--ink);
-  border-radius: 18px;
+  border-radius: 16px;
   width: 100%;
   max-width: 500px;
-  min-height: 620px;
-  padding: 24px 20px 80px; /* space for player */
+  padding: 24px;
   position: relative;
   text-align: left;
-  box-shadow: 10px 10px 0 var(--pink), 0 0 0 2px var(--ink);
-  background-image: url('paper-texture.png');
-  background-size: 300px;
+  box-shadow: 8px 8px 0 var(--pink);
   transition: transform 0.25s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.speaker:nth-child(odd) { transform: rotate(-1deg); }
-.speaker:nth-child(even) { transform: rotate(1deg); }
 
 .speaker:hover {
-  transform: scale(1.02);
-  box-shadow: 14px 14px 0 var(--yellow), 0 0 0 2px var(--ink);
+  transform: translateY(-4px);
+  box-shadow: 10px 10px 0 var(--yellow);
 }
 
-/* IMAGE / ALBUM COVER */
+/* album art */
 .speaker img {
   width: 100%;
-  border-radius: 14px;
+  height: auto;
+  border-radius: 12px;
   border: 2px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--yellow);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-/* SPEAKER INFO */
+/* speaker info */
 .speaker h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   color: var(--navy);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   letter-spacing: 1px;
 }
 
 .speaker p {
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--ink);
-  margin-bottom: 0;
 }
 
-/* MUSIC PLAYER BAR */
-.speaker .player {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: #fff;
-  border: 2px solid var(--ink);
-  border-radius: 10px;
-  box-shadow: 4px 4px 0 var(--pink);
-  padding: 8px 12px;
+/* player bar */
+.player {
+  margin-top: 16px;
+  border-top: 2px solid var(--ink);
+  padding-top: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-/* Play / pause icons */
-.player-icons {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 18px;
-  color: var(--navy);
+}
+
+.player-icons {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--navy);
+  font-weight: 700;
 }
 
-.player-icons span.playing {
-  animation: pulse 1s infinite alternate;
+.player-icons span:hover {
+  color: var(--pink);
 }
 
-/* Progress bar */
 .progress-bar {
   flex: 1;
-  height: 6px;
-  background: var(--paper);
-  border: 1px solid var(--ink);
+  height: 5px;
+  background: #ddd;
   margin: 0 10px;
+  border-radius: 2px;
   position: relative;
   overflow: hidden;
 }
 
 .progress-fill {
-  background: var(--pink);
-  height: 100%;
-  width: 35%;
-  animation: progressMove 6s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 45%;
+  background: var(--navy);
 }
 
-/* slightly offset timing per card */
-.speaker:nth-child(2n) .progress-fill { animation-delay: 1s; }
-.speaker:nth-child(3n) .progress-fill { animation-delay: 2s; }
-.speaker:nth-child(4n) .progress-fill { animation-delay: 3s; }
-
-/* Duration text */
 .time {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--ink);
+  width: 40px;
+  text-align: right;
 }
 
-/* Animations */
-@keyframes progressMove {
-  0% { width: 10%; }
-  100% { width: 90%; }
-}
-
-@keyframes pulse {
-  0% { opacity: 0.5; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-/* Responsive layout */
-@media (min-width: 768px) {
-  .speaker-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 767px) {
-  .speaker-grid { grid-template-columns: 1fr; }
-  .speaker {
-    width: 85%;
-    margin: 0 auto;
-    transform: none !important;
-  }
-}
 /* LIVESTREAM */
 #livestream {
-  max-width: 900px; /* exact match with speakers and event-info */
+  max-width: 900px;
   margin: 60px auto 80px;
   background: #fff;
   border: 2px solid var(--ink);
@@ -341,26 +318,32 @@ footer {
 }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+  .speaker-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .speaker-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .speaker {
+    width: 90%;
+  }
+
   .navbar {
     flex-wrap: wrap;
     justify-content: center;
     padding: 16px;
   }
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    right: 20px;
-  }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 16px;
-  }
-  .nav-links.active { display: flex; }
+
   .event-info, .livestream-section {
     padding: 24px;
   }
-  .title { font-size: clamp(56px, 14vw, 160px); }
+
+  .title {
+    font-size: clamp(56px, 14vw, 160px);
+  }
 }
