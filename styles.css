@@ -177,75 +177,78 @@ button {
 button:hover {
   transform: translate(-2px, -2px);
 }
-/* SPEAKERS — Static stacked layout */
-.speaker-list {
-  text-align: center;
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 40px 20px;
-}
 
-.speaker-list h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 8vw, 96px);
-  color: var(--pink);
-  text-transform: uppercase;
-  margin-bottom: 60px;
-}
 
+---
+/* SPEAKERS — perfectly uniform layout */
 .speaker-card {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 40px;
+  gap: 36px;
   background: var(--paper);
   border: 2px solid var(--ink);
   box-shadow: 10px 10px 0 var(--pink);
   border-radius: 16px;
   padding: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   max-width: 900px;
+  min-height: 320px; /* ensures uniform height for shorter bios */
 }
 
+/* lock consistent image sizing */
 .speaker-card img {
-  width: 240px;
-  height: 240px;
+  flex-shrink: 0;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   border: 2px solid var(--ink);
   box-shadow: 6px 6px 0 var(--yellow);
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
+/* constrain text column width */
 .speaker-info {
+  flex: 1;
   text-align: left;
+  max-width: 580px; /* keeps text column consistent */
 }
 
+/* uniform text spacing and hierarchy */
 .speaker-info h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
+  font-size: 34px;
   color: var(--navy);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
 .speaker-info p {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--ink);
+  margin: 0;
 }
 
+/* make smaller screens stack nicely */
 @media (max-width: 768px) {
   .speaker-card {
     flex-direction: column;
+    align-items: center;
     text-align: center;
     padding: 30px 20px;
+    min-height: auto;
+    box-shadow: 8px 8px 0 var(--pink);
   }
 
   .speaker-card img {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
   }
 
   .speaker-info {
+    max-width: 90%;
     text-align: center;
   }
 }
