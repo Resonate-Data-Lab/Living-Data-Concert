@@ -177,51 +177,37 @@ button {
 button:hover {
   transform: translate(-2px, -2px);
 }
-/* SPEAKERS — Spotify-style Carousel */
-.speaker-carousel {
+/* SPEAKERS — Static stacked layout */
+.speaker-list {
   text-align: center;
   max-width: 900px;
-  margin: 0 auto 100px;
-  padding: 60px 20px;
+  margin: 80px auto;
+  padding: 40px 20px;
 }
 
-.speaker-carousel h2 {
+.speaker-list h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(48px, 8vw, 96px);
   color: var(--pink);
   text-transform: uppercase;
-  margin-bottom: 40px;
-}
-
-.carousel-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 60px;
 }
 
 .speaker-card {
-  display: none;
-  align-items: center;
-  justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
   gap: 40px;
   background: var(--paper);
   border: 2px solid var(--ink);
   box-shadow: 10px 10px 0 var(--pink);
   border-radius: 16px;
   padding: 40px;
-  width: 100%;
-  transition: transform 0.5s ease, opacity 0.4s ease;
-}
-
-.speaker-card.active {
-  display: flex;
-  opacity: 1;
+  margin-bottom: 50px;
 }
 
 .speaker-card img {
-  width: 280px;
-  height: 280px;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
   border: 2px solid var(--ink);
   box-shadow: 6px 6px 0 var(--yellow);
@@ -229,7 +215,6 @@ button:hover {
 }
 
 .speaker-info {
-  flex: 1;
   text-align: left;
 }
 
@@ -246,32 +231,6 @@ button:hover {
   color: var(--ink);
 }
 
-/* navigation buttons */
-.nav-btn {
-  background: var(--navy);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 28px;
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  transition: background 0.3s ease;
-}
-
-.nav-btn:hover {
-  background: var(--pink);
-  color: var(--ink);
-}
-
-.prev { left: -60px; }
-.next { right: -60px; }
-
-/* responsive layout */
 @media (max-width: 768px) {
   .speaker-card {
     flex-direction: column;
@@ -284,13 +243,8 @@ button:hover {
     height: 220px;
   }
 
-  .nav-btn {
-    position: static;
-    margin: 10px;
-  }
-
-  .carousel-container {
-    flex-direction: column;
+  .speaker-info {
+    text-align: center;
   }
 }
 /* LIVESTREAM */
