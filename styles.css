@@ -196,6 +196,7 @@ button:hover {
 .speaker-card {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 40px;
   background: var(--paper);
   border: 2px solid var(--ink);
@@ -203,6 +204,7 @@ button:hover {
   border-radius: 16px;
   padding: 40px;
   margin-bottom: 50px;
+  max-width: 900px;
 }
 
 .speaker-card img {
