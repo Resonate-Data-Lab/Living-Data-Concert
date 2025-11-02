@@ -179,10 +179,28 @@ button:hover {
 }
 
 
----
+
 /* SPEAKERS — perfectly uniform layout */
+
+/* SPEAKERS — fix alignment and make them uniform */
+.speaker-list {
+  text-align: center;
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 40px 20px;
+}
+
+.speaker-list h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  color: var(--pink);
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+/* each performer card */
 .speaker-card {
-  display: flex;
+  display: flex;                /* this keeps image + text in a row */
   align-items: flex-start;
   justify-content: flex-start;
   gap: 36px;
@@ -193,10 +211,10 @@ button:hover {
   padding: 40px;
   margin-bottom: 60px;
   max-width: 900px;
-  min-height: 320px; /* ensures uniform height for shorter bios */
+  min-height: 320px;
 }
 
-/* lock consistent image sizing */
+/* image box */
 .speaker-card img {
   flex-shrink: 0;
   width: 220px;
@@ -207,14 +225,13 @@ button:hover {
   border-radius: 10px;
 }
 
-/* constrain text column width */
+/* text column */
 .speaker-info {
   flex: 1;
   text-align: left;
-  max-width: 580px; /* keeps text column consistent */
+  max-width: 580px;
 }
 
-/* uniform text spacing and hierarchy */
 .speaker-info h3 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 34px;
@@ -230,7 +247,7 @@ button:hover {
   margin: 0;
 }
 
-/* make smaller screens stack nicely */
+/* stack on phones */
 @media (max-width: 768px) {
   .speaker-card {
     flex-direction: column;
@@ -238,7 +255,6 @@ button:hover {
     text-align: center;
     padding: 30px 20px;
     min-height: auto;
-    box-shadow: 8px 8px 0 var(--pink);
   }
 
   .speaker-card img {
@@ -252,6 +268,8 @@ button:hover {
     text-align: center;
   }
 }
+
+
 /* LIVESTREAM */
 #livestream {
   max-width: 900px;
